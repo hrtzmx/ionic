@@ -6,13 +6,13 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
 	<link rel="stylesheet" type="text/css" href="css/ionic.css">
 </head>
-<body>
+<body ng-controller="parentCtrl">
 <ion-header-bar class="bar-assertive">
 	<h1 class="title">header</h1>
 </ion-header-bar>
 <ion-content>
 	<p>hello ionic</p>
-	<div ui-view=""></div>
+	<div ui-view></div>
 </ion-content>
 <ion-footer-bar class="bar-balanced">
 	<h1 class="title">footer</h1>
@@ -21,13 +21,19 @@
 <script type="text/javascript" src="js/ionic.bundle.js"></script>
 <script>
 	var app=angular.module('myApp',['ionic']);
+	app.controller('parentCtrl',['$scope','$state',function($scope,$state){
+			$scope.jump=function(arg){
+				$state.go(arg);
+			}
+	}]);
 	app.config(function($stateProvider,$urlRouterProvider){
 		$stateProvider.state('home',{
 			url:'/home',
 			templateUrl:'tpl/home.html'
 		}).state('person',{
 			url:'/person',
-			templateUrl:'tpl/person.html'
+			templateUrl:'tpl/person.html',
+			controller:'parentCtrl'
 		});
 		$urlRouterProvider.otherwise('home');
 	})
