@@ -1,5 +1,5 @@
 
-<div>
-	<h1>hello home</h1>
-	<button ng-click="jump('person')">跳转到person</button>
-</div>
+<h1>hello home</h1>
+<button ng-click="jump('person',{id:35})">跳转到person</button>
+<a href="#/myPerson/123">跳转到person</a>
+<a ui-sref="person({id:345})">跳转到person(sref)</a>

@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+
+
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+
 	<link rel="stylesheet" type="text/css" href="css/ionic.css">
 </head>
 <body ng-controller="parentCtrl">
@@ -12,33 +16,35 @@
 </ion-header-bar>
 <ion-content>
 	<p>hello ionic</p>
-	<div ui-view></div>
+	<div ui-view=""></div>
 </ion-content>
 <ion-footer-bar class="bar-balanced">
 	<h1 class="title">footer</h1>
 	
 </ion-footer-bar>
 <script type="text/javascript" src="js/ionic.bundle.js"></script>
-<script>
+<script type="text/javascript">
 	var app=angular.module('myApp',['ionic']);
-	app.controller('parentCtrl',['$scope','$state',function($scope,$state){
-			$scope.jump=function(path,arg){
-				$state.go(path,arg);
-			}
-	}]);
 	app.config(function($stateProvider,$urlRouterProvider){
-		$stateProvider.state('home',{
-			url:'/myHome',
-			templateUrl:'tpl/home.html'
-		}).state('person',{
-			url:'/myPerson/:id',
-			templateUrl:'tpl/person.html',
-			controller:'personCtrl'
+		$stateProvider.state('login',{
+			url:'/login',
+			templateUrl:'tpl/login.html'
+		}).state('register',{
+			url:'/register',
+			templateUrl:'tpl/register.html',
+		}).state('main',{
+			url:'/main',
+			templateUrl:'tpl/main.html',
 		});
-		$urlRouterProvider.otherwise('myHome');
+		$urlRouterProvider.otherwise('login');
 	});
-	app.controller('personCtrl',['$scope','$stateParams',function($scope,$stateParams){
-			console.log($stateParams.id);
+	app.controller('parentCtrl',['$scope','$state',function($scope,$state){
+		$scope.register=function(arg){
+			$state.go(arg);
+		}
+		$scope.login=function(arg){
+			$state.go(arg);
+		}
 	}])
 </script>
 </body>
