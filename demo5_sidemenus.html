@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body ng-controller="menuCtrl">
+<ion-side-menus>
+	<ion-side-menu-content>
+		<ion-header-bar class="bar-assertive">
+			<button class="button-icon icon ion-refresh" ng-click="menuShow()"></button>
+			<h1 class="title">header</h1>
+		</ion-header-bar>
+		<ion-content>
+			<button class="button button-royal" menu-toggle="left">
+			toggle
+			</button>
+		</ion-content>
+		
+		<ion-footer-bar class="bar-balanced">
+			<h1 class="title">footer</h1>
+	
+		</ion-footer-bar>
+	</ion-side-menu-content>
+	<ion-side-menu side='left'>
+		<ul>
+			<li><a href="">个人中心</a></li>
+			<li><a href="">个人中心</a></li>
+			<li><a href="">个人中心</a></li>
+		</ul>
+	</ion-side-menu>
+	<ion-side-menu side='right'>
+		<ul>
+			<li><a href="">个人中心1</a></li>
+			<li><a href="">个人中心1</a></li>
+			<li><a href="">个人中心1</a></li>
+		</ul>
+	</ion-side-menu>
+</ion-side-menus>
+
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script type="text/javascript">
+	var app=angular.module('myApp',['ionic']);
+	app.controller('menuCtrl',['$scope','$ionicSideMenuDelegate',function($scope,$ionicSideMenuDelegate){
+			$scope.menuShow=function(){
+				$ionicSideMenuDelegate.toggleLeft();
+			}
+	}])
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body ng-controller="scrollCtrl">
+<ion-header-bar class="bar-assertive">
+	<h1 class="title">header</h1>
+</ion-header-bar>
+<ion-content>
+	<p>hello ionic</p>
+	<ion-list>
+		<ion-item ng-repeat="tmp in list">
+			{{tmp}}
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer-bar class="bar-balanced">
+	<button class="button" ng-click="goTop()">GoTop</button>
+	<h1 class="title">footer</h1>
+	<button class="button" ng-click="goBottom()">GoBottom</button>
+</ion-footer-bar>
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script type="text/javascript">
+	var app=angular.module('myApp',['ionic']);
+	app.controller('scrollCtrl',['$scope','$ionicScrollDelegate',function(
+		$scope,$ionicScrollDelegate){
+			$scope.list=[];
+			for(var i=0;i<50;i++){
+				$scope.list.push(i);
+			}
+			$scope.goTop=function(){
+				$ionicScrollDelegate.scrollTop(true);
+			}
+			$scope.goBottom=function(){
+				$ionicScrollDelegate.scrollBottom(true);
+			}
+	}])
+</script>
+</body>
+</html>

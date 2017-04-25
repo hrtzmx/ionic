@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body ng-controller="tabsCtrl">
+<ion-header-bar class="bar-assertive">
+	<h1 class="title">header</h1>
+</ion-header-bar>
+<ion-tabs class="tabs-positive tabs-icon-top">
+	<ion-tab title="Music" icon-on="ion-ios-bell" icon-off="ion-ios-bell-outline" on-select="funcSelect(1)">
+		<ion-view>
+			<ion-content class="balanced-bg">
+				音乐列表
+				<ul class="list list-inset">
+					<li class="item">音乐1</li>
+					<li class="item">音乐2</li>
+					<li class="item">音乐3</li>
+					<li class="item">音乐4</li>
+				</ul>
+			</ion-content>
+		</ion-view>
+	</ion-tab>
+	<ion-tab title="Movie" icon-on="ion-ios-videocam" icon-off="ion-ios-videocam-outline" on-select="funcSelect(2)">
+		<ion-view>
+			<ion-content class="positive-bg">
+				电影列表
+				<ul class="list list-inset" >
+					<li class="item">电影1</li>
+					<li class="item">电影2</li>
+					<li class="item">电影3</li>
+					<li class="item">电影4</li>
+				</ul>
+			</ion-content>
+		</ion-view>
+	</ion-tab>
+</ion-tabs>
+<!-- <ion-content>
+	<p>hello ionic</p>
+</ion-content>
+<ion-footer-bar class="bar-balanced">
+	<h1 class="title">footer</h1>
+	
+</ion-footer-bar> -->
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script type="text/javascript">
+	var app=angular.module('myApp',['ionic']);
+	app.controller('tabsCtrl',['$scope','$ionicTabsDelegate',function($scope,$ionicTabsDelegate){
+			$scope.funcSelect=function(id){
+				console.log(id);
+			}
+
+	}])
+</script>
+</body>
+</html>

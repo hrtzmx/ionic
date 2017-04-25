@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body>
+<ion-header-bar class="bar-assertive">
+	<h1 class="title">header</h1>
+</ion-header-bar>
+<ion-content>
+	<div class="list list-inset">
+		<label class="item item-input">
+			姓名：
+			<input type="text" name="" placeholder="你的姓名">
+		</label>
+		<label class="item item-input">
+			需要查找什么：
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" name="" placeholder="搜索内容">	
+		</label>
+		<label class="item item-input">
+			日期：
+			<input type="date">
+		</label>
+		<label class="item item-input item-select">
+			<div class="input-label">
+				选择喜欢的颜色：
+			</div>
+			<select>
+				<option>红色</option>
+				<option selected="">绿色</option>
+				<option>蓝色</option>
+			</select>
+		</label>
+		<div class="item item-toggle">
+			切换开关
+			<label class="toggle toggle-assertive">
+				<input type="checkbox" name="">
+				<div class="track">
+					<div class="handle"></div>
+				</div>
+			</label>
+		</div>
+		<div class="item">
+			<p>选择喜欢的电影</p>
+			<ul class="list list-inset">
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox" name="">
+					</label>
+					钢铁侠
+				</li>
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox" name="">
+					</label>
+					蝙蝠侠
+				</li>
+				<li class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox" name="">
+					</label>
+					蜘蛛侠
+				</li>
+			</ul>
+		</div>
+	</div>
+</ion-content>
+<ion-footer-bar class="bar-balanced">
+	<h1 class="title">footer</h1>
+	
+</ion-footer-bar>
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script type="text/javascript">
+	var app=angular.module('myApp',['ionic']);
+</script>
+</body>
+</html>

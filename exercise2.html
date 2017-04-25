@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body>
+<ion-header-bar class=" bar-assertive">
+	<h1 class="title">header</h1>
+</ion-header-bar>
+<ion-content>
+	<p>使用 ionic中的list实现如下效果</p>
+	<div class="list list-inset ">
+		<a href="" class="item item-icon-left item-icon-right">
+			<i class="icon ion-plane"></i>
+			飞行模式
+			<i class="icon ion-ios-arrow-right"></i>
+		</a>
+		<a href="" class="item item-icon-left item-icon-right">
+			<i class="icon ion-wifi"></i>
+			Wi-Fi
+			<span class="item-note">未连接</span>
+			<i class="icon ion-ios-arrow-right"></i>
+		</a>
+		<a href="" class="item item-icon-left item-icon-right">
+			<i class="icon ion-bluetooth"></i>
+			蓝牙
+			<span class="item-note">打开</span>
+			<i class="icon ion-ios-arrow-right"></i>
+		</a>
+		<a href="" class="item item-icon-left item-icon-right">
+			<i class="icon ion-gear-a"></i>
+			系统更新
+			<span class="badge badge-assertive">新版本</span>
+			<i class="icon ion-ios-arrow-right"></i>
+		</a>
+	</div>
+	
+</ion-content>
+<ion-footer-bar class="bar-balanced">
+	<h1 class="title">footer</h1>
+	
+</ion-footer-bar>
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script>
+	var app=angular.module('myApp',['ionic']);
+</script>
+</body>
+</html>

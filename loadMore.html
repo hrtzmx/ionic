@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body ng-controller="scrollCtrl">
+<ion-header-bar class="bar-assertive">
+	<h1 class="title">header</h1>
+</ion-header-bar>
+<ion-content>
+	<p>hello ionic</p>
+	<ul>
+		<li ng-repeat="tmp in list track by $index">{{tmp}}</li>
+	</ul>
+	<ion-infinite-scroll distance="30%" on-infinite="loadMore()">
+		
+	</ion-infinite-scroll>
+</ion-content>
+<ion-footer-bar class="bar-balanced">
+	<h1 class="title">footer</h1>
+	
+</ion-footer-bar>
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script type="text/javascript">
+	var app=angular.module('myApp',['ionic']);
+	app.controller('scrollCtrl',['$scope','$timeout',function($scope,$timeout){
+		$scope.list=[];
+		$scope.list.push(1);
+		$scope.list.push(2);
+		$scope.list.push(3);
+		$scope.loadMore=function(){
+			$timeout(function(){
+				var length=$scope.list.length;
+				for(var i=0;i<5;i++){
+					$scope.list.push(length+i);
+				}
+				$scope.$broadcast('scroll.infiniteScrollComplete')
+			},2000);
+		}
+	}]);
+</script>
+</body>
+</html>

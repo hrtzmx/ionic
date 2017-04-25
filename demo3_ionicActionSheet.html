@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body ng-controller="showCtrl">
+<ion-header-bar class="bar-assertive">
+	<h1 class="title">header</h1>
+</ion-header-bar>
+<ion-content>
+	<p>ionic</p>
+	<a href="" class="button button-dark" ng-click="show()">open</a>
+</ion-content>
+<ion-footer-bar class="bar-balanced	">
+	<h1 class="title">footer</h1>
+</ion-footer-bar>
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script>
+	var app=angular.module('myApp',['ionic']);
+	app.controller('showCtrl',['$scope','$ionicActionSheet','$timeout',function($scope,$ionicActionSheet,$timeout){
+		$scope.show=function(){
+			hideSheet=$ionicActionSheet.show({
+				buttons:[
+					{text:'分享'},
+					{text:'移动'}
+				],
+				buttonClicked:function(index){
+					console.log(index);
+					return true;
+				},
+				cancelText:'取消',
+				cancel:function(){
+					console.log('点击取消');
+				},
+				destructiveText:'删除',
+				destructiveButtonClicked:function(){
+					console.log('已经被删除了');
+				}
+			});
+			$timeout(function(){
+					hideSheet();
+			},2000)
+		};
+	}]);
+</script>
+</body>
+</html>

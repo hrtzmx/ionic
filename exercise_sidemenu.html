@@ -1,0 +1,44 @@
+exercise_sidemenu.html<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+</head>
+<body ng-controller='menuToggle'>
+<ion-side-menus>
+	<ion-side-menu-content>
+		<ion-header-bar class="bar-assertive">
+			<h1 class="title">header</h1>
+			<button class="button button-icon icon ion-refresh" ng-click="menuRight()"></button>
+		</ion-header-bar>
+		<ion-content>
+			<button class="button button-royal" menu-toggle="right">toggle</button>
+		</ion-content>
+		<ion-footer-bar class="bar-balanced">
+			<h1 class="title">footer</h1>
+	
+		</ion-footer-bar>
+	</ion-side-menu-content>
+	<ion-side-menu side='right'>
+		<ul>
+			<li>用户中心</li>
+			<li>用户中心</li>
+			<li>用户中心</li>	
+		</ul>
+	</ion-side-menu>
+</ion-side-menus>
+
+<script type="text/javascript" src="js/ionic.bundle.js"></script>
+<script type="text/javascript">
+	var app=angular.module('myApp',['ionic']);
+	app.controller('menuToggle',['$scope','$ionicSideMenuDelegate',function($scope,$ionicSideMenuDelegate){
+
+			$scope.menuRight=function(){
+				$ionicSideMenuDelegate.toggleRight();
+			}
+	}])
+</script>
+</body>
+</html>
